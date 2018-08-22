@@ -34,5 +34,5 @@ int great_function_from_python(char *a) {
     return res;
 }
 int main(int argc, char *argv[]) {
-   return great_function_from_python("asdfasfds");
+   return great_function_from_python('{"a":"b"}');
 }
