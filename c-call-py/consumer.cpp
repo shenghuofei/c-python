@@ -23,8 +23,7 @@ int great_function_from_python(char *a) {
     //这里是要调用的函数名
     pFunc = PyObject_GetAttrString(pModule, "requests_ops");
     pValue = PyObject_CallObject(pFunc, pArgs);
-    //PyObject_CallFunction(pFunc, "zhengji");
-    //PyObject_CallFunction(pFunc,"s", pArgs);
+    //PyObject_CallFunction(pFunc, "s", "zhengji"); 参数说明:pFunc要调用的函数对象, s参数类型(string), 后面是具体参数
     //Py_DECREF(pFunc);
 
     res = PyInt_AsLong(pValue);
