@@ -1,0 +1,5 @@
+#g++ mypy.cpp -o mypy -lpython2.6 -I /usr/include/python2.6/
+pypath="~/pyenv/versions/3.6.3/" #使用pyenv安装指定版本python的路径(python3.+)
+export LD_LIBRARY_PATH=${pypath}lib/:$LD_LIBRARY_PATH
+## -L libdir, -I includepaht, -l libname
+g++ consumer.cpp -o consumer -L ${pypath}lib/ -I ${pypath}include/python3.6m/ -l python3.6m
