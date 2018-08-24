@@ -1,5 +1,11 @@
 #g++ mypy.cpp -o mypy -lpython2.6 -I /usr/include/python2.6/
 pypath="~/pyenv/versions/3.6.3/" #使用pyenv安装指定版本python的路径(python3.+)
-export LD_LIBRARY_PATH=${pypath}lib/:$LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH=/usr/local/kafka/lib/:${pypath}lib/:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/kafka/include/:${pypath}include/python3.6m/:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=/usr/local/kafka/lib/:${pypath}lib/:$LIBRARY_PATH
+
 ## -L libdir, -I includepaht, -l libname
-g++ consumer.cpp -o consumer -L ${pypath}lib/ -I ${pypath}include/python3.6m/ -l python3.6m
+g++ consumer.cpp -o consumer -lpython3.6m -lpthread -lutil
+#g++ consumer.cpp -o consumer -lpython3.6m -lkafka -lpthread -lutil
+#g++ consumer.cpp -o consumer -L ${pypath}lib/ -I ${pypath}include/python3.6m/ -l python3.6m -lkafka -lpthread -lutil
