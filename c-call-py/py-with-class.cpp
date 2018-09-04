@@ -44,7 +44,7 @@ int main () {
     }
     PyObject_CallMethod(pInstance, "SetName", "s","my family");
     PyObject_CallMethod(pInstance, "PrintName",NULL,NULL);
-    //调用Py_Finalize，这个根Py_Initialize相对应的。
+    //调用Py_Finalize，这个根Py_Initialize相对应的,必须在python调用完以后执行,否则找不到python module
     Py_Finalize();
     return 0;
 }

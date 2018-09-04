@@ -75,7 +75,7 @@ int great_function_from_python(char *a) {
     //{
     //    PyGILState_Release(gstate);    //释放当前线程的GIL
     //} 
-    //调用Py_Finalize，这个根Py_Initialize相对应的。
+    //调用Py_Finalize，这个根Py_Initialize相对应的,必须在python调用完以后执行,否则找不到python module
     Py_Finalize();
     return res;
 }
